@@ -7,8 +7,14 @@
 import os
 import sys
 from pathlib import Path
+
+# 確保 property_price_ai 目錄在 import 路徑中
+sys.path.insert(0, str(Path(__file__).parent))
+
 import anthropic
 from dotenv import load_dotenv
+from lvr_api import get_transactions, summarize
+from location_parser import parse_location
 
 # 自動載入專案根目錄的 .env 檔案
 load_dotenv(Path(__file__).parent.parent / ".env")
@@ -126,6 +132,43 @@ def chat(client: anthropic.Anthropic, messages: list[dict]) -> str:
     return "".join(text_blocks)
 
 
+def _enrich_with_lvr(user_input: str) -> str:
+    """
+    偵測地點並查詢實價登錄；若有資料則將成交摘要注入 prompt。
+    """
+    loc = parse_location(user_input)
+    city, district, road = loc["city"], loc["district"], loc["road"]
+
+    if not city:
+        return user_input
+
+    # 從輸入中嘗試抓房數（如 1房、2房）
+    import re
+    rooms_match = re.search(r"([1-9一二三四五六七八九])房", user_input)
+    rooms = rooms_match.group(1) if rooms_match else None
+    # 阿拉伯數字轉字串以匹配 CSV 欄位
+    if rooms and rooms.isdigit():
+        rooms = rooms  # CSV 欄位值為 "1", "2", ...
+
+    rows, err = get_transactions(city, district, road, rooms)
+
+    if err:
+        print(f"  [實價登錄] {err}")
+        return user_input
+
+    if not rows:
+        print(f"  [實價登錄] {city}{district or ''} 查無符合成交紀錄")
+        return user_input
+
+    lvr_text = summarize(rows)
+    print(f"  [實價登錄] 找到 {len(rows)} 筆成交紀錄，已注入對話\n")
+    return (
+        f"[系統提供的實價登錄成交資料，請優先依據此資料回答]\n"
+        f"{lvr_text}\n\n"
+        f"使用者問題：{user_input}"
+    )
+
+
 def run_cli():
     client = create_client()
     print_banner()
@@ -154,7 +197,9 @@ def run_cli():
             print("顧問：您好！請問有什麼房產問題需要協助？\n")
             continue
 
-        messages.append({"role": "user", "content": user_input})
+        # 嘗試從輸入萃取地點，注入實價登錄資料
+        enriched = _enrich_with_lvr(user_input)
+        messages.append({"role": "user", "content": enriched})
 
         print("\n顧問：", end="", flush=True)
         try:
