@@ -6,7 +6,12 @@
 
 import os
 import sys
+from pathlib import Path
 import anthropic
+from dotenv import load_dotenv
+
+# 自動載入專案根目錄的 .env 檔案
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 MODEL = "claude-opus-4-7"
 
