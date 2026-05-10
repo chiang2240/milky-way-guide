@@ -2,7 +2,7 @@
 
 使用手機專業模式拍攝銀河的完整指南，從參數設定到現場構圖，從規劃時機到選擇地點，一站搞定。
 
-目前支援機型：**Vivo X300 Ultra** | **iPhone 15 Pro**
+目前支援機型：**iPhone 15 Pro**
 
 ---
 
@@ -58,49 +58,6 @@
 
 ---
 
-## 📱 Vivo X300 Ultra 手冊
-
-### 📖 手冊目錄
-
-| # | 文件 | 內容 |
-|---|------|------|
-| 0 | [機身參數清單](vivo_x300_ultra_pro_mode.md) | X300 Ultra 專業模式所有可調參數（ISO、快門、對焦、白平衡、RAW 格式） |
-| 1 | [拍攝參數設定手冊](vivo_x300_ultra_milky_way_guide.md) | 銀河核心 & 全景拼接的完整參數、對焦校準流程、500/NPF 法則計算、常見問題排除 |
-| 2 | [拍攝規劃指南](vivo_x300_ultra_milky_way_planning.md) | 台灣銀河可見月份與時段、2026 新月窗口表、月相避開原則、天文 App 推薦、出門前 Checklist |
-| 3 | [北部拍攝地點指南](vivo_x300_ultra_milky_way_locations.md) | 台北/新北/基隆/桃園/新竹/宜蘭各縣市暗空拍攝點、波特爾等級、車程、注意事項 |
-| 4 | [構圖技巧指南](vivo_x300_ultra_milky_way_composition.md) | 前景選擇、天地比例、直幅 vs 橫幅、全景拼接構圖、常見構圖錯誤 |
-
-### 📷 機身規格速覽
-
-| 鏡頭 | 感測器 | 等效焦距 | 光圈 | 銀河用途 |
-|------|--------|----------|------|----------|
-| 超廣角 | 50MP, 1/1.28" | 14mm | f/2.0 | 銀河核心單張拍攝 |
-| 主鏡頭 | 200MP Sony Lytia 901, 1/1.12" | 35mm | f/1.9 | 全景拼接（最強低光鏡頭） |
-| 望遠 | 200MP Samsung HP0, 1/1.4" | 85mm | f/2.7 | 銀河核心特寫（進階） |
-
-### ⚡ 參數速查
-
-```
-┌──────────────────────────────────────────────────────────────────┐
-│            Vivo X300 Ultra 銀河拍攝速查                            │
-├──────────────┬────────────────────┬───────────────────────────────┤
-│     項目     │    銀河核心（單張） │    銀河全景拼接                │
-├──────────────┼────────────────────┼───────────────────────────────┤
-│ 鏡頭         │ 超廣角 14mm f/2.0  │ 主鏡頭 35mm f/1.9            │
-│ ISO          │ 1600（→3200）      │ 1600（→3200）                │
-│ 快門         │ 32"               │ 15"                          │
-│ 對焦         │ MF 1.00            │ MF 1.00                      │
-│ 白平衡       │ 3800K / Tint 0     │ 3800K / Tint 0               │
-│ RAW          │ SuperRAW           │ SuperRAW                     │
-│ 閃光燈       │ 關                 │ 關                           │
-├──────────────┼────────────────────┼───────────────────────────────┤
-│ 張數         │ 8–15 張（堆疊用）  │ 10–12 張（拼接用）           │
-│ 重疊率       │ —                  │ 30–40%                       │
-└──────────────┴────────────────────┴───────────────────────────────┘
-```
-
----
-
 ## 🗓️ 2026 最佳拍攝窗口
 
 | 月份 | 新月日期 | 暗空窗口 | 推薦度 |
@@ -141,7 +98,6 @@
 本手冊所有參數和建議均經過網路查證，主要參考來源：
 
 - [Apple iPhone 15 Pro 規格](https://www.apple.com/iphone-15-pro/specs/)
-- [GSMArena - Vivo X300 Ultra 規格](https://www.gsmarena.com/vivo_x300_ultra_5g-14388.php)
 - [PhotoPills - Milky Way Photography Settings](https://photopills.com/articles/milky-way-photography-settings)
 - [ViewBug - Astrophotography Cheat Sheet](https://viewbug.com/knowledge/astrophotography-camera-settings)
 - [Milky Way Planner](https://milkywayplanner.com)
